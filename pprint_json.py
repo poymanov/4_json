@@ -19,19 +19,19 @@ def load_data(filepath):
         return None
 
 
-def prettify_json(file_data):
-    return json.dumps(file_data, indent=4, ensure_ascii=False)
+def prettify_json(data_object):
+    return json.dumps(data_object, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
     args = parse_args()
 
     filepath = args.file
-    file_data = load_data(filepath)
+    data_object = load_data(filepath)
 
-    if file_data is None:
+    if data_object is None:
         sys.exit('Failed to open json file (not found or incorrect format)')
 
-    prettified_json = prettify_json(file_data)
+    prettified_json = prettify_json(data_object)
 
     print(prettified_json)
